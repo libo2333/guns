@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba21e417-03b1-4024-8735-b289814d8dc5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-api/src/main/java/com/stylefeng/guns/rest/user/bean/UserInfoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/UserTokenMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/mapping/MtimeUserTMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/mapping/UserTokenMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/model/MtimeUserT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/model/UserToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/UserTokenMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/mapping/UserTokenMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/model/UserToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-api/src/main/java/com/stylefeng/guns/rest/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-api/src/main/java/com/stylefeng/guns/rest/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-api/target/classes/com/stylefeng/guns/rest/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-api/target/classes/com/stylefeng/guns/rest/user/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-core/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/guns-core/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-film/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/guns-film/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/validator/impl/DbValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/validator/impl/DbValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/controller/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/validator/impl/DbValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/auth/validator/impl/DbValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/cinema/CinemaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/cinema/CinemaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/film/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/film/FilmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-gateway/target/classes/com/stylefeng/guns/rest/modular/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-rest.log" beforeDir="false" afterPath="$PROJECT_DIR$/guns-rest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-rest/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/guns-rest/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/modular/user/service/impl/MyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/modular/user/service/impl/MyUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/GunsRestApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/modular/film/FilmController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/modular/film/service/IMoocFilmTService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/modular/film/service/impl/MoocFilmTServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/modular/user/service/impl/MyUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/guns-user/target/classes/com/stylefeng/guns/rest/modular/user/service/impl/MyUserServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/guns-film/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -96,7 +58,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="JAVA" value="35" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="3" />
           <entry key="YAML" value="2" />
         </counts>
@@ -104,7 +66,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="14" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="PLAIN_TEXT" value="28" />
           <entry key="YAML" value="6" />
         </counts>
       </usages-collector>
@@ -124,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1162">
-              <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+              <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,11 +101,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="771">
-              <caret line="70" column="16" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
+            <state relative-caret-position="-191">
+              <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -226,10 +197,10 @@
         <option value="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.java" />
         <option value="$PROJECT_DIR$/guns-user/src/main/java/com/stylefeng/guns/rest/modular/user/service/impl/MyUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/guns-gateway/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/common/persistence/dao/MtimeUserTMapper.java" />
         <option value="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.java" />
         <option value="$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -746,11 +717,11 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559829761467" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559830806195" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -870,7 +841,7 @@
       <option name="presentableId" value="Default" />
       <updated>1559654985092</updated>
       <workItem from="1559654986488" duration="5372000" />
-      <workItem from="1559826497384" duration="3260000" />
+      <workItem from="1559826497384" duration="4731000" />
     </task>
     <servers />
   </component>
@@ -880,7 +851,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8632000" />
+    <option name="totallyTimeSpent" value="10103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -896,12 +867,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31932774" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3042017" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.77310926" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.23697479" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.4420168" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.23697479" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -933,12 +904,6 @@
           <line>47</line>
           <properties />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1163,13 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1233,16 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="70" column="16" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
@@ -1285,10 +1233,27 @@
     <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/filter/AuthFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1162">
-          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guns-gateway/src/main/java/com/stylefeng/guns/rest/modular/auth/controller/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>

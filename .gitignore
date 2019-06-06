@@ -5,6 +5,8 @@
 target/
 logs/
 /target/
+/.idea/
+.gitigbore
 
 # Log file
 *.log
