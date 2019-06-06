@@ -59,7 +59,7 @@ public class MtimeCinemaT extends Model<MtimeCinemaT> {
      * 影院地址
      */
     @TableField("cinema_address")
-    private String cinemaAddress;
+    private String address;
     /**
      * 最低票价
      */
@@ -123,12 +123,12 @@ public class MtimeCinemaT extends Model<MtimeCinemaT> {
         this.imgAddress = imgAddress;
     }
 
-    public String getCinemaAddress() {
-        return cinemaAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCinemaAddress(String cinemaAddress) {
-        this.cinemaAddress = cinemaAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Integer getMinimumPrice() {
@@ -154,7 +154,7 @@ public class MtimeCinemaT extends Model<MtimeCinemaT> {
         ", areaId=" + areaId +
         ", hallIds=" + hallIds +
         ", imgAddress=" + imgAddress +
-        ", cinemaAddress=" + cinemaAddress +
+        ", cinemaAddress=" + address +
         ", minimumPrice=" + minimumPrice +
         "}";
     }

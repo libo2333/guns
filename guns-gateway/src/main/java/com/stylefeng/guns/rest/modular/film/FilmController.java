@@ -24,7 +24,7 @@ public class FilmController {
     }
 
 
-    @Reference
+    @Reference(check = false)
     FilmService filmService;
 
 

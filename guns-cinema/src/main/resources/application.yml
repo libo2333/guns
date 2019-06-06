@@ -12,7 +12,7 @@ jwt:
 
 #端口号从8080开始排  dubbo的微服务端口 从20880开始
 server:
-  port: 8088 #项目端口
+  port: 8085 #项目端口
 
 mybatis-plus:
   mapper-locations: classpath*:com/stylefeng/guns/rest/**/mapping/*.xml
@@ -30,13 +30,13 @@ mybatis-plus:
 
 spring:
   application:
-    name: film-service
+    name: cinema-service
   dubbo:
     server: true
     registry: zookeeper://localhost:2181
     protocol:
       name: dubbo
-      port: 20888
+      port: 20885
   datasource:
       url: jdbc:mysql://127.0.0.1:3306/guns_rest?serverTimezone=GMT&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL
       username: root

@@ -18,7 +18,7 @@ public class UserController {
         return "ok";
     }
 
-    @Reference
+    @Reference(check = false)
     UserService userService;
     @RequestMapping("logout")
     public ResponseVO logout(){
