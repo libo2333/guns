@@ -2,6 +2,7 @@ package com.stylefeng.guns.rest.cinema;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.stylefeng.guns.rest.cinema.bean.CinemaVO;
+import com.stylefeng.guns.rest.cinema.bean.ConditionData;
 import com.stylefeng.guns.rest.cinema.bean.QueryVo;
 
 import java.util.List;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface CinemaService{
 
     List<CinemaVO> getCinemas(QueryVo queryVo);
+
+    ConditionData getCondition(QueryVo queryVo);
 }
