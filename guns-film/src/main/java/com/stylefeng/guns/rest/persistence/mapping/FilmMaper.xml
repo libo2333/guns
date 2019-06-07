@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.FilmMapper">
+    <resultMap id="banner" type="com.stylefeng.guns.rest.film.bean.film_index.BannerVo">
+        <id property="bannerId" column="UUID"/>
+        <result property="bannerAddress" column="banner_address"/>
+        <result property="bannerUrl" column="banner_url"/>
+    </resultMap>
+    <select id="getBanner" resultMap="banner">
+        select * from mtime_banner_t
+    </select>
+    <!--一次查询出封装好的数据-->
+    <resultMap id="sal" type="com.stylefeng.guns.rest.film.bean.film_index.FilmVo">
+        <collection property="filmInfo" ofType="com.stylefeng.guns.rest.film.bean.film_index.FilmInfo">
+        <result property="filmId" column="film_id"/>
+        <result property="filmType" column="film_type"/>
+        <result property="imgAddress" column="img_address"/>
+        <result property="filmName" column="film_name"/>
+        <result property="filmScore" column="film_source"/>
+        <result property="expectNum" column="film_preSaleNum"/>
+        <result property="showTime" column="film_time"/>
+        <result property="boxNum" column="film_box_office"/>
+        <result property="score" column="film_score"/>
+        </collection>
+    </resultMap>
+    <resultMap id="info" type="com.stylefeng.guns.rest.film.bean.film_index.FilmInfo">
+        <result property="filmId" column="film_id"/>
+        <result property="filmType" column="film_type"/>
+        <result property="imgAddress" column="img_address"/>
+        <result property="filmName" column="film_name"/>
+        <result property="filmScore" column="film_source"/>
+        <result property="expectNum" column="film_preSaleNum"/>
+        <result property="showTime" column="film_time"/>
+        <result property="boxNum" column="film_box_office"/>
+        <result property="score" column="film_score"/>
+    </resultMap>
+
+    <sql id="getFilm">
+        select film_info.film_id,
+        film.film_type,
+        film.img_address,
+        film.film_name,
+        film.film_source,
+        film.film_preSaleNum,
+        film.film_time,
+        film.film_box_office,
+        film.film_score
+        from mtime_film_info_t film_info
+        left join mtime_film_t film
+        on film_info.film_id=film.UUID
+    </sql>
+    <!--预售数量-->
+    <select id="getHotFilm" resultMap="sal">
+        <include refid="getFilm"/>
+        order by   film.film_preSaleNum
+    </select>
+    <!--即将上映-->
+    <select id="getSoonFilm" resultMap="sal">
+        <include refid="getFilm"/>
+        order by  film.film_time
+    </select>
+    <!--每日票房-->
+    <select id="getBoxRanking" resultMap="info">
+        <include refid="getFilm"/>
+        order by film.film_box_office
+    </select>
+    <!--预售数量-->
+    <select id="getTop" resultMap="info">
+        <include refid="getFilm"/>
+        order by film.film_score
+    </select>
+    <!--影片评分-->
+    <select id="getExpectRanking" resultMap="info">
+        <include refid="getFilm"/>
+        order by  film.film_preSaleNum
+    </select>
+</mapper>
