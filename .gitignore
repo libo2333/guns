@@ -6,7 +6,7 @@ target/
 logs/
 /target/
 /.idea/
-.gitigbore
+.gitignore
 
 # Log file
 *.log

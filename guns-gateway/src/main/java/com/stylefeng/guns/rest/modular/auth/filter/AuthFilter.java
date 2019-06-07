@@ -1,11 +1,8 @@
 package com.stylefeng.guns.rest.modular.auth.filter;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.stylefeng.guns.core.base.tips.ErrorTip;
 import com.stylefeng.guns.core.util.RenderUtil;
 import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
-import com.stylefeng.guns.rest.common.persistence.dao.UserTokenMapper;
-import com.stylefeng.guns.rest.common.persistence.model.UserToken;
 import com.stylefeng.guns.rest.config.properties.JwtProperties;
 import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
@@ -19,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * 对客户端请求的jwt token验证过滤器
@@ -37,11 +33,28 @@ public class AuthFilter extends OncePerRequestFilter {
     @Autowired
     private JwtProperties jwtProperties;
 
-    @Autowired
-    UserTokenMapper userTokenMapper;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+        //注册直接通过
+        if(request.getServletPath().equals("/user/register")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //查询直接通过
+        if(request.getServletPath().equals("/user/getUserInfo")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //退出直接通过
+        if(request.getServletPath().equals("/user/logout")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //登录直接通过
         if (request.getServletPath().equals("/" + jwtProperties.getAuthPath())) {
             chain.doFilter(request, response);
             return;
@@ -50,13 +63,6 @@ public class AuthFilter extends OncePerRequestFilter {
         String authToken = null;
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
             authToken = requestHeader.substring(7);
-
-            //验证token是否注销
-            List<UserToken> token = userTokenMapper.selectList(new EntityWrapper<UserToken>().eq("token", authToken));
-            if(token.size()==0){
-                RenderUtil.renderJson(response, new ErrorTip(BizExceptionEnum.TOKEN_ERROR.getCode(), BizExceptionEnum.TOKEN_ERROR.getMessage()));
-                return;
-            }
 
             //验证token是否过期,包含了验证jwt是否正确
             try {

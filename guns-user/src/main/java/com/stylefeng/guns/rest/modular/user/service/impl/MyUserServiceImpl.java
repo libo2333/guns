@@ -10,6 +10,7 @@ import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
 import com.stylefeng.guns.rest.user.UserService;
 import com.stylefeng.guns.rest.user.bean.ResponseVO;
 import com.stylefeng.guns.rest.user.bean.UserInfoModel;
+import com.stylefeng.guns.rest.user.bean.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -83,5 +84,15 @@ public class MyUserServiceImpl implements UserService {
         hashMap.put("status",0);
         hashMap.put("data",mtimeUserT.get(0));
         return hashMap;
+    }
+
+    @Override
+    public ResponseVO register(UserModel userModel) {
+        List<MtimeUserT> mtimeUserTS = mtimeUserTMapper.selectListByUsername(userModel.getUsername());
+        if(mtimeUserTS.size()!=0){
+            return new ResponseVO(1,"用户已存在");
+        }
+
+        return null;
     }
 }
