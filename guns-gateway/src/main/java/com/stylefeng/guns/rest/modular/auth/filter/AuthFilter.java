@@ -35,6 +35,26 @@ public class AuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+        //注册直接通过
+        if(request.getServletPath().equals("/user/register")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //查询直接通过
+        if(request.getServletPath().equals("/user/getUserInfo")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //退出直接通过
+        if(request.getServletPath().equals("/user/logout")){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //登录直接通过
         if (request.getServletPath().equals("/" + jwtProperties.getAuthPath())) {
             chain.doFilter(request, response);
             return;

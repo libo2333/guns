@@ -19,51 +19,8 @@
         <result column="begin_time" property="beginTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
-    <select id="selectListByUsername" resultMap="BaseResultMap">
-        select
-        UUID,
-        user_name,
-        nick_name,
-        user_sex,
-        birthday,
-        email,
-        user_phone,
-        address,
-        head_url,
-        biography,
-        life_state,
-        begin_time,
-        update_time
-        from mtime_user_t where user_name = #{username}
-    </select>
 
-    <update id="updateUserInfo">
-        update mtime_user_t set
-        nick_name =#{nickname},
-        user_sex =#{sex},
-        birthday =#{birthday},
-        email =#{email},
-        user_phone =#{phone},
-        address =#{address},
-        biography=#{biography}
-        where UUID=#{uuid}
-    </update>
-
-    <select id="selectByUUID" resultMap="BaseResultMap">
-        select
-        UUID,
-        user_name,
-        nick_name,
-        user_sex,
-        birthday,
-        email,
-        user_phone,
-        address,
-        head_url,
-        biography,
-        life_state,
-        begin_time,
-        update_time
-        from mtime_user_t where UUID = #{UUID}
+    <select id="selectUUIDbyUsername" resultType="java.lang.Integer">
+        select UUID from mtime_user_t where user_name = #{username}
     </select>
 </mapper>
