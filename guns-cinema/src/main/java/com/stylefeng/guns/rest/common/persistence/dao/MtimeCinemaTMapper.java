@@ -19,4 +19,7 @@ public interface MtimeCinemaTMapper extends BaseMapper<CinemaVO> {
 
     List<CinemaVO> selectCinemasByQueryVo(@Param("queryVo") QueryVo queryVo);
 
+    List<MtimeHallFilmInfoT> selectDataFilmListByCinemaId(Integer cinemaId);
+
+    FiledInfoData SelectFieldInfoByCinemaIdAndFieldId(Integer cinemaId, Integer fieldId);
 }

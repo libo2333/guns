@@ -32,4 +32,61 @@
         </where>
     </select>
 
+    <resultMap id="DataFilmList" type="com.stylefeng.guns.rest.cinema.bean.MtimeHallFilmInfoT">
+        <result column="mhfit_film_id" property="filmId"/>
+        <result column="film_name" property="filmName"/>
+        <result column="film_length" property="filmLength"/>
+        <result column="film_language" property="filmType"/>
+        <result column="film_cats" property="filmCats"/>
+        <result column="actors" property="actors"/>
+        <result column="mhfit_img" property="imgAddress"/>
+        <collection property="filmFields" ofType="com.stylefeng.guns.rest.cinema.bean.MtimeFieldT">
+            <result column="mftid" property="fieldId"/>
+            <result column="begin_time" property="beginTime"/>
+            <result column="end_time" property="endTime"/>
+            <result column="film_language1" property="language"/>
+            <result column="hall_name" property="hallName"/>
+            <result column="price" property="price"/>
+        </collection>
+    </resultMap>
+    <select id="selectDataFilmListByCinemaId" resultMap="DataFilmList">
+    SELECT mhfit.film_id as mhfit_film_id,film_name,film_length,film_language,film_language as film_language1,film_cats,actors,mhfit.img_address as mhfit_img,
+    mft.uuid as mftid,begin_time,end_time,hall_name,price
+    FROM (select * from mtime_field_t where cinema_id=#{cinemaId}) as mft
+    LEFT join  mtime_hall_film_info_t as mhfit ON mhfit.film_id=mft.film_id
+    </select>
+
+    <resultMap id="Data" type="com.stylefeng.guns.rest.cinema.bean.FiledInfoData">
+        <association property="cinemaInfo" javaType="com.stylefeng.guns.rest.cinema.bean.MtimeCinemaT">
+            <result column="mctid" property="cinemaId"/>
+            <result column="mct_img" property="imgUrl"/>
+            <result column="cinema_name" property="cinemaName"/>
+            <result column="cinema_address" property="cinemaAddress"/>
+            <result column="cinema_phone" property="cinemaPhone"/>
+        </association>
+        <association property="filmInfo" javaType="com.stylefeng.guns.rest.cinema.bean.MtimeHallFilmInfoT">
+            <result column="mhfit_film_id" property="filmId"/>
+            <result column="film_name" property="filmName"/>
+            <result column="film_length" property="filmLength"/>
+            <result column="film_language" property="filmType"/>
+            <result column="film_cats" property="filmCats"/>
+            <result column="mhfit_img" property="imgAddress"/>
+        </association>
+        <association property="hallInfo" javaType="com.stylefeng.guns.rest.cinema.bean.MtimeHallDictT">
+            <id column="hall_id" property="hallFieldId" />
+            <result column="seat_address" property="seatFile" />
+            <result column="hall_name" property="hallName"/>
+            <result column="price" property="price"/>
+        </association>
+    </resultMap>
+    <select id="SelectFieldInfoByCinemaIdAndFieldId" resultMap="Data">
+SELECT mhfit.film_id as mhfit_film_id,film_name,film_length,film_language,film_cats,mhfit.img_address as mhfit_img,
+   begin_time,end_time,hall_name,price,hall_id,seat_address,
+    mct.uuid as mctid,mct.img_address as mct_img,cinema_phone,cinema_name,cinema_address
+    FROM (select * from mtime_field_t where cinema_id=#{cinemaId} and uuid =#{fieldId}) as mft
+    LEFT join  mtime_hall_film_info_t as mhfit ON mhfit.film_id=mft.film_id
+    Left join mtime_hall_dict_t as mhdt on mhdt.uuid = mft.hall_id
+    left join mtime_cinema_t as mct on mct.uuid=#{cinemaId}
+</select>
+
 </mapper>
