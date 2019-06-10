@@ -2,10 +2,8 @@ package com.stylefeng.guns.rest.modular.cinema;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.stylefeng.guns.rest.cinema.bean.CinemaVO;
-import com.stylefeng.guns.rest.cinema.bean.ConditionData;
-import com.stylefeng.guns.rest.cinema.bean.QueryVo;
-import com.stylefeng.guns.rest.cinema.bean.ResponseVo;
+import com.stylefeng.guns.core.exception.ServiceException;
+import com.stylefeng.guns.rest.cinema.bean.*;
 import com.stylefeng.guns.rest.cinema.CinemaService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +20,7 @@ public class CinemaController {
     CinemaService cinemaService;
 
     @RequestMapping("/getCinemas")
-    public ResponseVo getCinemas(QueryVo queryVo){
+    public ResponseVo getCinemas(QueryVo queryVo)throws ServiceException {
         List<CinemaVO> cinemaTList = cinemaService.getCinemas(queryVo);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(cinemaTList);
@@ -33,8 +31,26 @@ public class CinemaController {
     }
 
     @RequestMapping("/getCondition")
-    public ResponseVo getCondition(QueryVo queryVo){
+    public ResponseVo getCondition(QueryVo queryVo)throws ServiceException{
         ConditionData data = cinemaService.getCondition(queryVo);
+        ResponseVo<Object> responseVo = new ResponseVo<>();
+        responseVo.setData(data);
+        responseVo.setStatus(0);
+        return responseVo;
+    }
+
+    @RequestMapping("/getFields")
+    public ResponseVo getFields(Integer cinemaId)throws ServiceException{
+        List<MtimeHallFilmInfoT> data = cinemaService.getFields(cinemaId);
+        ResponseVo<Object> responseVo = new ResponseVo<>();
+        responseVo.setData(data);
+        responseVo.setStatus(0);
+        return responseVo;
+    }
+
+    @RequestMapping("/getFieldInfo")
+    public ResponseVo getFieldInfo(Integer cinemaId,Integer fieldId)throws ServiceException{
+        FiledInfoData data = cinemaService.getFieldInfo(cinemaId,fieldId);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(data);
         responseVo.setStatus(0);

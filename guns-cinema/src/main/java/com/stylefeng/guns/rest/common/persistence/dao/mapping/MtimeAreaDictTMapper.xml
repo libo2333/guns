@@ -3,7 +3,7 @@
 <mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.MtimeAreaDictTMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.common.persistence.model.MtimeAreaDictT">
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.cinema.bean.AreaVO">
         <id column="UUID" property="areaId" />
         <result column="show_name" property="areaName" />
     </resultMap>
