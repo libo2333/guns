@@ -19,4 +19,6 @@ public interface UserService {
     HashMap<String, Object> updateUserInfo(UserInfoModel userInfoModel);
 
     ResponseVO register(UserModel userModel);
+
+    ResponseVO check(String username);
 }

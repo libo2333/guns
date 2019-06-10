@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.common.persistence.dao;
 import com.stylefeng.guns.rest.common.persistence.model.MtimeUserT;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.stylefeng.guns.rest.user.bean.UserInfoModel;
+import com.stylefeng.guns.rest.user.bean.UserModel;
 
 import java.util.List;
 
@@ -21,4 +22,5 @@ public interface MtimeUserTMapper extends BaseMapper<MtimeUserT> {
 
     List<MtimeUserT> selectByUUID(int UUID);
 
+    int register(UserModel userModel);
 }
