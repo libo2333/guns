@@ -41,7 +41,7 @@ public class CinemaController {
 
     @RequestMapping("/getFields")
     public ResponseVo getFields(Integer cinemaId)throws ServiceException{
-        List<MtimeHallFilmInfoT> data = cinemaService.getFields(cinemaId);
+        FieldsData data = cinemaService.getFields(cinemaId);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(data);
         responseVo.setStatus(0);

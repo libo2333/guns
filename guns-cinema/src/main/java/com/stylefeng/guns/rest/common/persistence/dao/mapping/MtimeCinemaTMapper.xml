@@ -89,4 +89,20 @@ SELECT mhfit.film_id as mhfit_film_id,film_name,film_length,film_language,film_c
     left join mtime_cinema_t as mct on mct.uuid=#{cinemaId}
 </select>
 
+    <resultMap id="CinemaInfo" type="com.stylefeng.guns.rest.cinema.bean.MtimeCinemaT">
+        <!--uuid - cinemaid-->
+        <id column="mctid" property="cinemaId"/>
+        <result column="mct_img" property="imgUrl"/>
+        <result column="cinema_name" property="cinemaName"/>
+        <result column="cinema_address" property="cinemaAddress"/>
+        <result column="cinema_phone" property="cinemaPhone"/>
+    </resultMap>
+
+    <select id="selectCinemaInfoByCinemaId" resultMap="CinemaInfo">
+    SELECT mct.uuid as mctid , mct.img_address as mct_img ,cinema_name ,cinema_address,cinema_phone
+    FROM
+    mtime_cinema_t mct
+    where uuid = #{cinemaId}
+    </select>
+
 </mapper>

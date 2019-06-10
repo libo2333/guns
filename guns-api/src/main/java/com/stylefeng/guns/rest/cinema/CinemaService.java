@@ -18,7 +18,7 @@ public interface CinemaService{
 
     ConditionData getCondition(QueryVo queryVo);
 
-    List<MtimeHallFilmInfoT> getFields(Integer cinemaId);
+    FieldsData getFields(Integer cinemaId);
 
     FiledInfoData getFieldInfo(Integer cinemaId, Integer fieldId);
 }
