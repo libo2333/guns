@@ -36,3 +36,5 @@ hs_err_pid*
 .settings/
 *.iml
 .idea/
+bash.exe.stackdump
+guns-film/src/main/java/com/stylefeng/guns/rest/modular/film/
