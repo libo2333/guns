@@ -1,5 +1,6 @@
 package com.stylefeng.guns.rest.persistence;
 
+
 import com.stylefeng.guns.rest.film.bean.film_index.BannerVo;
 import com.stylefeng.guns.rest.film.bean.film_index.FilmInfo;
 import com.stylefeng.guns.rest.film.bean.film_index.FilmVo;

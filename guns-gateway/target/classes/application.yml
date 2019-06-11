@@ -11,7 +11,7 @@ jwt:
 
 #网关的端口号是80 其他的微服务我们从8080开始
 server:
-  port: 8080 #项目端口
+  port: 90 #项目端口
 
 mybatis-plus:
   mapper-locations: classpath*:com/stylefeng/guns/rest/**/mapping/*.xml
@@ -33,13 +33,13 @@ spring:
   dubbo:
     registry: zookeeper://localhost:2181
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/guns_rest?serverTimezone=GMT&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL
+      url: jdbc:mysql://127.0.0.1:3306/film?serverTimezone=GMT&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL
       username: root
-      password: 123456
+      password: z15924528
       filters: log4j,wall,mergeStat
 
 logging:
   level.root: info
   level.com.stylefeng: debug
   path: logs/
-  file: guns-rest.log
+  file: guns-gateway.log

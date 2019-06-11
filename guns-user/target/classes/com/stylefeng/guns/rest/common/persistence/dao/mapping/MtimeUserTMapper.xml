@@ -31,7 +31,7 @@
         address,
         head_url,
         biography,
-        life_stat,
+        life_state,
         begin_time,
         update_time
         from mtime_user_t where user_name = #{username}

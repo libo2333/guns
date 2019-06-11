@@ -30,4 +30,5 @@ hs_err_pid*
 .settings/
 
 bash.exe.stackdump
-guns-film/src/main/java/com/stylefeng/guns/rest/modular/film/
+*.yml
+*.gz
