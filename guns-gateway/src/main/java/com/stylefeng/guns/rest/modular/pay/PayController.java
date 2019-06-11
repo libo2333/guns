@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.modular.pay;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.stylefeng.guns.core.exception.ServiceException;
 import com.stylefeng.guns.rest.order.bean.ResponseVo;
+import com.stylefeng.guns.rest.pay.bean.PayData;
 import com.stylefeng.guns.rest.pay.service.PayService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +16,22 @@ public class PayController {
     PayService payService;
 
     @RequestMapping("/getPayInfo")
-    public ResponseVo getPayInfo(Integer orderId)throws ServiceException {
-        //List<CinemaVO> cinemaTList = cinemaService.getCinemas(orderId);
+    public ResponseVo getPayInfo(String orderId)throws ServiceException {
+        PayData data = payService.getPayInfo(orderId);
         ResponseVo<Object> responseVo = new ResponseVo<>();
-        /*responseVo.setData(cinemaTList);
+        responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
         responseVo.setStatus(0);
-        responseVo.setNowPage(queryVo.getNowPage());
-        responseVo.setTotalPage(cinemaTList.size()/queryVo.getPageSize()+1);*/
+        return responseVo;
+    }
+
+    @RequestMapping("/getPayResult")
+    public ResponseVo getPayResult(String orderId,Integer tryNums)throws ServiceException {
+        PayData data = payService.getPayResult(orderId,tryNums);
+        ResponseVo<Object> responseVo = new ResponseVo<>();
+        responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
+        responseVo.setStatus(0);
         return responseVo;
     }
 }
