@@ -35,6 +35,7 @@ public class CinemaController {
         ConditionData data = cinemaService.getCondition(queryVo);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
         responseVo.setStatus(0);
         return responseVo;
     }
@@ -44,6 +45,7 @@ public class CinemaController {
         FieldsData data = cinemaService.getFields(cinemaId);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
         responseVo.setStatus(0);
         return responseVo;
     }
@@ -53,6 +55,7 @@ public class CinemaController {
         FiledInfoData data = cinemaService.getFieldInfo(cinemaId,fieldId);
         ResponseVo<Object> responseVo = new ResponseVo<>();
         responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
         responseVo.setStatus(0);
         return responseVo;
     }

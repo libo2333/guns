@@ -34,4 +34,14 @@ public class PayController {
         responseVo.setStatus(0);
         return responseVo;
     }
+
+   /* @RequestMapping("/buyTickets")
+    public ResponseVo buyTickets(Integer fieldId,Integer tryNums)throws ServiceException {
+        PayData data = payService.buyTickets(orderId,tryNums);
+        ResponseVo<Object> responseVo = new ResponseVo<>();
+        responseVo.setData(data);
+        responseVo.setImgPre("http://img.meetingshop.cn/");
+        responseVo.setStatus(0);
+        return responseVo;
+    }*/
 }

@@ -55,7 +55,7 @@ public class FilmController {
             return responseFault;
         }
     }
-    @Reference
+    @Reference(check = false)
     FilmSelectService filmSelectService;
     @RequestMapping("getConditionList")
     public ResponseFault getConditionList(RequestJudgeVo requestJudgeVo){
@@ -78,7 +78,7 @@ public class FilmController {
             return responseFault;
         }
     }
-    @Reference
+    @Reference(check = false)
     FilmInfoService filmInfoService;
     @RequestMapping("films/{data}")
     public ResponseFault getInfo(@PathVariable("data") String data,HttpServletRequest request) {
@@ -104,7 +104,7 @@ public class FilmController {
             return responseFault;
         }
     }
-    @Reference
+    @Reference(check = false)
     FilmQueryService filmQueryService;
     @RequestMapping("film/getFilms")
     public ResponseFault getFilms(RequestVo requestVo){

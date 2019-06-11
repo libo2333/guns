@@ -3,7 +3,6 @@ package com.stylefeng.guns.rest.film.bean;
 
 import lombok.Data;
 
-@Data
 public class ResponseVo<T> extends ResponseFault {
     private int status;
     private String imgPre;
@@ -55,5 +54,21 @@ public class ResponseVo<T> extends ResponseFault {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public int getNowPage() {
+        return nowPage;
+    }
+
+    public void setNowPage(int nowPage) {
+        this.nowPage = nowPage;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
     }
 }
