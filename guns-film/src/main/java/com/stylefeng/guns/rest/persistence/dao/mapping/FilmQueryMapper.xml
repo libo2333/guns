@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.FilmQueryMapper">
+    <resultMap id="responseVO" type="com.stylefeng.guns.rest.film.bean.ResponseVo">
+        <result property="totalPage" column="totalPage"/>
+        <association property="data" javaType="com.stylefeng.guns.rest.film.bean.film_query.FilmProfile">
+            <result property="filmType" column="film_type"/>
+            <result property="filmId" column="film_Id"/>
+            <result property="imgAddress" column="img_address"/>
+            <result property="filmName" column="film_name"/>
+            <result property="film_Score" column="film_score"/>
+        </association>
+    </resultMap>
+    <select id="queryByHot" resultMap="responseVO">
+        select count(*)/#{pageSize} as totalPage,
+        a.film_type,
+        a.UUID as film_Id,
+        a.img_address,
+        a.film_name,
+        a.film_score
+        FROM
+        `mtime_film_t` a
+        inner join
+        mtime_year_dict_t b
+        inner join
+        mtime_source_dict_t c
+        inner join
+        mtime_cat_dict_t d
+        where a.film_status=#{showType}
+         and d.UUID=#{catId}
+         and c.UUID=#{sourceId}
+         and b.UUID=#{yearId}
+         order by a.film_preSaleNum
+         limit #{pageSize} offset #{nowPage}
+    </select>
+    <select id="queryByTime" resultMap="responseVO">
+         select count(*)/#{pageSize} as totalPage,
+        a.film_type,
+        a.UUID as film_Id,
+        a.img_address,
+        a.film_name,
+        a.film_score
+        FROM
+        `mtime_film_t` a
+        inner join
+        mtime_year_dict_t b
+        inner join
+        mtime_source_dict_t c
+        inner join
+        mtime_cat_dict_t d
+        where a.film_status=#{showType}
+         and d.UUID=#{catId}
+         and c.UUID=#{sourceId}
+         and b.UUID=#{yearId}
+         order by a.film_time
+         limit #{pageSize} offset #{nowPage}
+    </select>
+    <select id="queryByEvaluation" resultMap="responseVO">
+         select count(*)/#{pageSize} as totalPage,
+        a.film_type,
+        a.UUID as film_Id,
+        a.img_address,
+        a.film_name,
+        a.film_score
+        FROM
+        `mtime_film_t` a
+        inner join
+        mtime_year_dict_t b
+        inner join
+        mtime_source_dict_t c
+        inner join
+        mtime_cat_dict_t d
+        where a.film_status=#{showType}
+         and d.UUID=#{catId}
+         and c.UUID=#{sourceId}
+         and b.UUID=#{yearId}
+         order by a.film_score
+         limit #{pageSize} offset #{nowPage}
+    </select>
+</mapper>

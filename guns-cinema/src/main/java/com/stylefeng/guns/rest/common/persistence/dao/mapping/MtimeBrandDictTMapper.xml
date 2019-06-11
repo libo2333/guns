@@ -3,7 +3,7 @@
 <mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.MtimeBrandDictTMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.common.persistence.model.MtimeBrandDictT">
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.cinema.bean.BrandVO">
         <id column="UUID" property="brandId" />
         <result column="show_name" property="brandName" />
     </resultMap>

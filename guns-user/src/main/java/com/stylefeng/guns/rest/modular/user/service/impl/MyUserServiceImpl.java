@@ -14,6 +14,8 @@ import com.stylefeng.guns.rest.user.bean.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,16 +64,71 @@ public class MyUserServiceImpl implements UserService {
     public UserInfoModel getUserInfo(String username) {
         List<MtimeUserT> user_name = mtimeUserTMapper.selectListByUsername(username);
         MtimeUserT mtimeUserT = user_name.get(0);
-        UserInfoModel userInfoModel = new UserInfoModel(mtimeUserT.getUuid(), mtimeUserT.getUserName(), mtimeUserT.getNickName(),
-                mtimeUserT.getEmail(), mtimeUserT.getUserPhone(), mtimeUserT.getUserSex(),
-                mtimeUserT.getBirthday(), mtimeUserT.getLifeState().toString(), mtimeUserT.getBiography(),
-                mtimeUserT.getAddress(), mtimeUserT.getHeadUrl(), mtimeUserT.getBeginTime().getTime(), mtimeUserT.getUpdateTime().getTime());
+        UserInfoModel userInfoModel = new UserInfoModel();
+        String nickName = mtimeUserT.getNickName();
+        Integer userSex = mtimeUserT.getUserSex();
+        String birthday = mtimeUserT.getBirthday();
+        Integer lifeState = mtimeUserT.getLifeState();
+        String biography = mtimeUserT.getBiography();
+        String headUrl = mtimeUserT.getHeadUrl();
+
+        userInfoModel.setUsername(mtimeUserT.getUserName());
+        userInfoModel.setUuid(mtimeUserT.getUuid());
+        userInfoModel.setEmail(mtimeUserT.getEmail());
+        userInfoModel.setPhone(mtimeUserT.getUserPhone());
+        userInfoModel.setAddress(mtimeUserT.getAddress());
+        userInfoModel.setCreateTime(mtimeUserT.getBeginTime().getTime());
+        userInfoModel.setUpdateTime(mtimeUserT.getUpdateTime().getTime());
+
+        if(nickName==null || nickName.equals("")){
+            userInfoModel.setNickname("");
+        }else { userInfoModel.setNickname(nickName);}
+
+        if(userSex==null){
+            userInfoModel.setSex(0);
+        }else {userInfoModel.setSex(userSex);}
+
+        if(birthday==null ||birthday.equals("")){
+            userInfoModel.setBirthday("");
+        }else{userInfoModel.setBirthday(birthday);}
+
+        if(lifeState==null){
+            userInfoModel.setLifeState("0");
+        }else {userInfoModel.setLifeState(lifeState.toString());}
+
+        if(biography == null || biography.equals("")){
+            userInfoModel.setBiography("");
+        }else {userInfoModel.setBiography(biography);}
+
+        if(headUrl == null){
+            userInfoModel.setHeadAddress("");
+        }else {userInfoModel.setHeadAddress(headUrl); }
+
         return userInfoModel;
     }
 
     @Override
     public HashMap<String, Object> updateUserInfo(UserInfoModel userInfoModel) {
         HashMap<String, Object> hashMap = new HashMap<>();
+
+        //判断userInfoModel空字段
+        String nickname = userInfoModel.getNickname();
+        String biography = userInfoModel.getBiography();
+        String headAddress = userInfoModel.getHeadAddress();
+        long updateTime = userInfoModel.getUpdateTime();
+        Date date = new Date(updateTime);
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+
+
+        if(nickname == null || nickname.equals("")){
+            userInfoModel.setNickname("");
+        }
+        if(biography == null){
+            userInfoModel.setBiography("");
+        }
+        if(headAddress == null){
+            userInfoModel.setHeadAddress("");
+        }
 
         int update = mtimeUserTMapper.updateUserInfo(userInfoModel);
         if(update == 0){
@@ -80,9 +137,14 @@ public class MyUserServiceImpl implements UserService {
             return hashMap;
         }
 
-        List<MtimeUserT> mtimeUserT = mtimeUserTMapper.selectByUUID(userInfoModel.getUuid());
+        /*List<MtimeUserT> mtimeUserTs = mtimeUserTMapper.selectByUUID(userInfoModel.getUuid());
+        MtimeUserT mtimeUserT = mtimeUserTs.get(0);*/
+
+
+
+
         hashMap.put("status",0);
-        hashMap.put("data",mtimeUserT.get(0));
+        hashMap.put("data",userInfoModel);
         return hashMap;
     }
 
@@ -93,6 +155,19 @@ public class MyUserServiceImpl implements UserService {
             return new ResponseVO(1,"用户已存在");
         }
 
-        return null;
+        //检查所有为空为null的字段
+       /* String email = userModel.getEmail();
+        String phone = userModel.getPhone();
+        String address = userModel.getAddress();
+        if()*/
+
+        int flag = mtimeUserTMapper.register(userModel);
+        return new ResponseVO(0,"注册成功");
+    }
+
+    @Override
+    public ResponseVO check(String username) {
+        List<MtimeUserT> mtimeUserTS = mtimeUserTMapper.selectListByUsername(username);
+        return mtimeUserTS.size()==0?new ResponseVO(1,"验证失败"):new ResponseVO(0,"验证成功");
     }
 }

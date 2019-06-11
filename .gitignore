@@ -1,19 +1,14 @@
 # Compiled class file
-*.class
 *.iml
 *.idea
 target/
 logs/
 /target/
-/.idea/
 .gitignore
-
 # Log file
 *.log
-
 # BlueJ files
 *.ctxt
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -28,13 +23,11 @@ logs/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-*velocity.log*
 
 # Eclipse #
 .classpath
 .project
 .settings/
-*.iml
-.idea/
+
 bash.exe.stackdump
 guns-film/src/main/java/com/stylefeng/guns/rest/modular/film/

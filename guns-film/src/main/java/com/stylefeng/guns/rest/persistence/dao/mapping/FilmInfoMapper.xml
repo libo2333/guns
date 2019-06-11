@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.FilmInfoMapper">
+    <!--through film_id find film_length of film_info-table
+    and film_source of source_dict-table and then package-->
+    <resultMap id="info02" type="com.stylefeng.guns.rest.film.bean.film_info.info_dict.Info02">
+        <result property="source" column="show_name"/>
+        <result property="length" column="film_length"/>
+    </resultMap>
+    <select id="getInfo02" resultMap="info02">
+        SELECT b.film_length,c.show_name
+        FROM
+        mtime_film_t a
+        LEFT JOIN mtime_film_info_t b ON a.UUID = b.film_id
+        LEFT JOIN mtime_source_dict_t c ON a.film_source = c.UUID where a.UUID=#{id}
+    </select>
+    <!--through film_id find film_time of film-table
+    and film_area of area_dict-table or need handler it type
+    and then package-->
+    <resultMap id="info03" type="com.stylefeng.guns.rest.film.bean.film_info.info_dict.Info03">
+        <result property="area" column="show_name"/>
+        <result property="time" column="film_time"/>
+    </resultMap>
+    <select id="getInfo03" resultMap="info03">
+      SELECT
+	  a.film_time,
+	  b.show_name
+      FROM
+	  mtime_film_t a
+      LEFT JOIN mtime_area_dict_t b
+      on a.film_area=b.UUID where a.UUID=#{id}
+    </select>
+    <!--through film_id find film_cats of film-table
+    and handler type it and then find result
+    and then package-->
+    <resultMap id="info01" type="com.stylefeng.guns.rest.film.bean.film_info.info_dict.Info01">
+        <result property="show_name" column="film_cats"
+                typeHandler="com.stylefeng.guns.rest.modular.film.handler.StringToInt"/>
+    </resultMap>
+    <!--find int [] -->
+    <select id="getBeanInfo01" resultMap="info01">
+        select film_cats from mtime_film_t  a where a.UUID=#{id}
+    </select>
+    <select id="getInfo01" resultType="string">
+        select show_name from mtime_cat_dict_t  where UUID in
+        <foreach collection="array" item="cat" open="(" close=")" separator=",">
+            #{cat}
+        </foreach>
+    </select>
+    <!--through film_id find director_id of film_info-table
+    and handler type it and then find result
+    and then package-->
+    <resultMap id="director" type="com.stylefeng.guns.rest.film.bean.film_info.Actors">
+        <result property="imgAddress" column="director_img"/>
+        <result property="directorName" column="director_name"/>
+    </resultMap>
+    <select id="getDirectorOfActors" resultMap="director">
+        select c.director_img,c.director_name from mtime_film_t a
+        join mtime_film_info_t b on a.UUID=b.film_id
+        join mtime_director_t c on b.director_id=c.UUID
+        where a.UUID=#{id}
+    </select>
+    <!--through film_id and film_actor find role_name and actor_id of film_actor-table
+    -->
+    <resultMap id="actor" type="com.stylefeng.guns.rest.film.bean.film_info.Actors">
+        <result property="imgAddress" column="actor_img"/>
+        <result property="directorName" column="actor_name"/>
+        <result property="roleName" column="role_name"/>
+    </resultMap>
+    <select id="getActorOfActors" resultMap="actor">
+        select b.role_name,c.actor_name,c.actor_img
+        from mtime_film_t a
+        left join mtime_film_actor_t b
+        on a.UUID=b.film_id
+        left join mtime_actor_t c
+        on b.actor_id=c.UUID where a.UUID=#{id}
+    </select>
+    <!--through film_id find img_addrsss and via film_info_t find film_imgs,
+    and handler type
+   -->
+    <resultMap id="img" type="com.stylefeng.guns.rest.film.bean.film_info.ImgVO">
+        <result property="img" column="film_imgs" typeHandler="com.stylefeng.guns.rest.modular.film.handler.StringToList"/>
+        <result property="mainImg" column="img_address"/>
+    </resultMap>
+    <select id="getImg" resultMap="img">
+        select film_imgs,img_address from mtime_film_t a
+        left join mtime_film_info_t b on a.UUID=b.film_id where a.UUID=#{id}
+    </select>
+    <resultMap id="filmInfo" type="com.stylefeng.guns.rest.film.bean.film_info.FilmInfoVo">
+        <result property="filmId" column="film_id"/>
+        <result property="filmName" column="film_name"/>
+        <result property="filmEnName" column="film_en_name"/>
+        <result property="imgAddress" column="img_address"/>
+        <result property="score" column="film_score"/>
+        <result property="scoreNum" column="film_score_num"/>
+        <result property="totalBox" column="film_box_office"/>
+        <association property="info04" javaType="com.stylefeng.guns.rest.film.bean.film_info.Info04">
+            <result property="biography" column="biography"/>
+        </association>
+    </resultMap>
+    <select id="getFilmInfoVo" resultMap="filmInfo">
+       SELECT
+	    b.film_id,
+	    a.film_name,
+	    b.film_en_name,
+	    a.img_address,
+	    a.film_score,
+	    b.biography,
+	    a.film_box_office,
+	    b.film_score_num
+        FROM
+	    mtime_film_t a
+	    LEFT JOIN mtime_film_info_t b ON a.UUID = b.film_id where a.UUID=#{id}
+    </select>
+    <select id="queryIdByName" resultType="int">
+        select UUID from mtime_film_t where film_name=#{name}
+    </select>
+
+</mapper>

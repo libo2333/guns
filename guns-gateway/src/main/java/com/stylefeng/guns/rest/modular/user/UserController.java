@@ -87,4 +87,11 @@ public class UserController {
         ResponseVO register = userService.register(userModel);
         return register;
     }
+
+    //用户验证
+    @RequestMapping("check")
+    public ResponseVO check(String username){
+        ResponseVO responseVO = userService.check(username);
+        return responseVO;
+    }
 }

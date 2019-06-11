@@ -38,13 +38,13 @@ spring:
       name: dubbo
       port: 20880
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/guns_rest?serverTimezone=GMT&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL
+      url: jdbc:mysql://127.0.0.1:3306/film?useSSL=false&serverTimezone=GMT&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL
       username: root
-      password: 123456
+      password: z15924528
       filters: log4j,wall,mergeStat
 
 logging:
   level.root: info
   level.com.stylefeng: debug
   path: logs/
-  file: guns-rest.log
+  file: guns-film.log

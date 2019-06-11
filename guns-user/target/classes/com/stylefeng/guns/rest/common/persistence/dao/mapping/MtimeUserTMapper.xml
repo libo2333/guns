@@ -31,7 +31,7 @@
         address,
         head_url,
         biography,
-        life_state,
+        life_stat,
         begin_time,
         update_time
         from mtime_user_t where user_name = #{username}
@@ -41,11 +41,9 @@
         update mtime_user_t set
         nick_name =#{nickname},
         user_sex =#{sex},
-        birthday =#{birthday},
-        email =#{email},
-        user_phone =#{phone},
-        address =#{address},
-        biography=#{biography}
+        life_state=#{lifeState},
+        head_url = #{headAddress},
+        biography = #{biography}
         where UUID=#{uuid}
     </update>
 
@@ -66,4 +64,10 @@
         update_time
         from mtime_user_t where UUID = #{UUID}
     </select>
+
+    <insert id="register">
+        insert into mtime_user_t
+        (UUID,user_name,user_pwd,email,user_phone,address)
+        values (null,#{username},#{password},#{email},#{phone},#{address})
+    </insert>
 </mapper>

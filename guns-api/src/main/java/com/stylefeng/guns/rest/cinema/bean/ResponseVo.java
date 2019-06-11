@@ -8,6 +8,9 @@ public class ResponseVo<T> implements Serializable {
     int totalPage;
     T data;
 
+    private String imgPre;
+    private String msg;
+
     public int getStatus() {
         return status;
     }
@@ -40,6 +43,22 @@ public class ResponseVo<T> implements Serializable {
         this.data = data;
     }
 
+    public String getImgPre() {
+        return imgPre;
+    }
+
+    public void setImgPre(String imgPre) {
+        this.imgPre = imgPre;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     @Override
     public String toString() {
         return "ResponseVo{" +
@@ -47,6 +66,8 @@ public class ResponseVo<T> implements Serializable {
                 ", nowPage=" + nowPage +
                 ", totalPage=" + totalPage +
                 ", data=" + data +
+                ", imgPre='" + imgPre + '\'' +
+                ", msg='" + msg + '\'' +
                 '}';
     }
 }

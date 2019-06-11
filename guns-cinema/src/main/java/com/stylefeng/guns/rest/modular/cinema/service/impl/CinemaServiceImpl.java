@@ -59,4 +59,20 @@ public class CinemaServiceImpl implements CinemaService {
         data.setHallTypeList(hallTypeList);
         return data;
     }
+
+    @Override
+    public FieldsData getFields(Integer cinemaId) {
+        MtimeCinemaT cinemaInfo = mtimeCinemaTMapper.selectCinemaInfoByCinemaId(cinemaId);
+        List<MtimeHallFilmInfoT> filmList = mtimeCinemaTMapper.selectDataFilmListByCinemaId(cinemaId);
+        FieldsData data = new FieldsData();
+        data.setCinemaInfo(cinemaInfo);
+        data.setFilmList(filmList);
+        return data;
+    }
+
+    @Override
+    public FiledInfoData getFieldInfo(Integer cinemaId, Integer fieldId) {
+        FiledInfoData data = mtimeCinemaTMapper.SelectFieldInfoByCinemaIdAndFieldId(cinemaId,fieldId);
+        return data;
+    }
 }

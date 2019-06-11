@@ -14,7 +14,7 @@ public class UserInfoModel implements Serializable {
     private String biography;
     private String address;
     private String headAddress;
-    private long beginTime;
+    private long CreateTime;
     private long updateTime;
 
     public UserInfoModel() {
@@ -36,7 +36,7 @@ public class UserInfoModel implements Serializable {
         updateTime = mtimeUserT.getUpdateTime().getTime();
     }*/
 
-    public UserInfoModel(Integer uuid, String username, String nickname, String email, String phone, int sex, String birthday, String lifeState, String biography, String address, String headAddress, long beginTime, long updateTime) {
+    public UserInfoModel(Integer uuid, String username, String nickname, String email, String phone, int sex, String birthday, String lifeState, String biography, String address, String headAddress, long createTime, long updateTime) {
         this.uuid = uuid;
         this.username = username;
         this.nickname = nickname;
@@ -48,7 +48,7 @@ public class UserInfoModel implements Serializable {
         this.biography = biography;
         this.address = address;
         this.headAddress = headAddress;
-        this.beginTime = beginTime;
+        this.CreateTime = createTime;
         this.updateTime = updateTime;
     }
 
@@ -140,12 +140,12 @@ public class UserInfoModel implements Serializable {
         this.headAddress = headAddress;
     }
 
-    public long getBeginTime() {
-        return beginTime;
+    public long getCreateTime() {
+        return CreateTime;
     }
 
-    public void setBeginTime(long beginTime) {
-        this.beginTime = beginTime;
+    public void setCreateTime(long createTime) {
+        CreateTime = createTime;
     }
 
     public long getUpdateTime() {
@@ -155,6 +155,7 @@ public class UserInfoModel implements Serializable {
     public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
     }
+
 
     @Override
     public String toString() {
@@ -170,7 +171,7 @@ public class UserInfoModel implements Serializable {
                 ", biography='" + biography + '\'' +
                 ", address='" + address + '\'' +
                 ", headAddress='" + headAddress + '\'' +
-                ", beginTime=" + beginTime +
+                ", CreateTime=" + CreateTime +
                 ", updateTime=" + updateTime +
                 '}';
     }

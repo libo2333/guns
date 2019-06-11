@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.persistence.dao.FilmSelectMapper">
+    <select id="queryCatInfo" resultType="com.stylefeng.guns.rest.film.bean.film_judge.CatVo">
+
+    </select>
+    <select id="querySourceInfo" resultType="com.stylefeng.guns.rest.film.bean.film_judge.SourceVo">
+
+    </select>
+    <select id="queryYearInfo" resultType="com.stylefeng.guns.rest.film.bean.film_judge.YearVo">
+
+    </select>
+    <resultMap id="queryAll" type="com.stylefeng.guns.rest.film.bean.film_judge.FilmJudgeVo">
+        <collection  property="catInfo" ofType="com.stylefeng.guns.rest.film.bean.film_judge.CatVo">
+            <result property="catId" column="catId"/>
+            <result property="catName" column="catName"/>
+        </collection>
+        <collection  property="sourceInfo" ofType="com.stylefeng.guns.rest.film.bean.film_judge.SourceVo">
+            <result property="sourceId" column="sourceId"/>
+            <result property="sourceName" column="sourceName"/>
+        </collection>
+        <collection  property="yearInfo" ofType="com.stylefeng.guns.rest.film.bean.film_judge.YearVo">
+            <result property="yearId" column="yearId"/>
+            <result property="yearName" column="yearName"/>
+        </collection>
+    </resultMap>
+    <select id="query" resultMap="queryAll">
+      SELECT
+	a.UUID AS catId,
+	a.show_name AS catName,
+	b.UUID AS sourceId,
+	b.show_name AS sourceNAME,
+	c.UUID AS yearId,
+	c.show_name AS yearName
+    FROM
+	mtime_cat_dict_t a,
+	  mtime_source_dict_t b,
+	  mtime_year_dict_t c
+	 <where>
+         <if test="catId lt 99">
+              a.UUID=#{catId}
+         </if>
+         <if test="sourceId lt 99">
+             AND b.UUID=#{sourceId}
+         </if>
+         <if test="yearId lt 99">
+             AND c.UUID=#{yearId}
+         </if>
+     </where>
+    </select>
+</mapper>

@@ -11,7 +11,7 @@ jwt:
 
 #网关的端口号是80 其他的微服务我们从8080开始
 server:
-  port: 80 #项目端口
+  port: 8080 #项目端口
 
 mybatis-plus:
   mapper-locations: classpath*:com/stylefeng/guns/rest/**/mapping/*.xml
